@@ -20,7 +20,6 @@ Or import and call:
 """
 
 import csv
-import sys
 from datetime import datetime
 
 CLASS_CODE = "0040-BOAT HOUSE"
@@ -64,8 +63,7 @@ def build_entry(data, out_dir="/mnt/user-data/outputs"):
     """
     dt = datetime.strptime(data["date"], "%Y-%m-%d")
     date_str = dt.strftime("%d-%m-%Y")
-    memo_date = dt.strftime("%b %-d %Y") if sys.platform != "win32" else dt.strftime("%b %#d %Y")
-    memo = f"Boathouse Daily Revenue {memo_date}"
+    memo = "Boathouse Daily Revenue"
     jn = data["journal_no"]
 
     rows = []
