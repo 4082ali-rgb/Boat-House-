@@ -100,15 +100,16 @@ Columns, in order:
 
 - `*JournalNo` and `*JournalDate` and `Memo` repeat identically on every row.
 - `*JournalDate` format: `DD-MM-YYYY`
-- `Memo` = `Boathouse Daily Revenue` (no date appended — the date lives in `*JournalDate`)
+- `Memo` = `Boathouse Daily Revenue {Month} {DD} {YYYY}` (e.g. `Boathouse Daily Revenue Aug 14 2026`)
 - `Description` = for lines that share an account across multiple rows (i.e. the 1007 split
   lines, and any revenue category that could repeat), prefix with the category/tender name
-  and a dash: `{label}-Boathouse Daily Revenue` (e.g. `MasterCard-Boathouse Daily Revenue`,
-  `Ice Cream-Boathouse Daily Revenue`). For single-occurrence accounts (GST, PST, Tips, Petty
-  Cash, Discounts) use plain `Boathouse Daily Revenue` with no prefix. In practice always
-  prefix per-category revenue lines since Ice Cream/3007 recurs across days but is
-  single-occurrence within a day — use the category label on every revenue line and
-  tender-brand label on every 1007 line.
+  and a dash: `{label}-Boathouse Daily Revenue {Month} {DD} {YYYY}` (e.g.
+  `MasterCard-Boathouse Daily Revenue Aug 14 2026`, `Ice Cream-Boathouse Daily Revenue Aug 14
+  2026`). For single-occurrence accounts (GST, PST, Tips, Petty Cash, Discounts) use plain
+  `Boathouse Daily Revenue {Month} {DD} {YYYY}` with no prefix. In practice always prefix
+  per-category revenue lines since Ice Cream/3007 recurs across days but is single-occurrence
+  within a day — use the category label on every revenue line and tender-brand label on every
+  1007 line.
 - `Class` = `0040-BOAT HOUSE` on every row.
 - `Name` and `Location` = blank.
 - **No commas** anywhere in free text — reword instead of relying on CSV quoting.
